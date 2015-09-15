@@ -2,6 +2,8 @@
 
 ![alt tag](https://github.com/dohonext/PhotoShake/blob/master/Screen%20Shot%202015-09-14%20at%2001.27.45.png)
 
+- http://54.64.239.231:8080/photoshake/ 로 접속하면 실행해 보실 수 있습니다. (개발중)   
+
 ## 사진을 업로드하고, 인기 사진을 추천해 주는 싱글 페이지 웹 서비스입니다.
 
 ### 백엔드
