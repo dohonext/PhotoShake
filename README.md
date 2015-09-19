@@ -29,3 +29,8 @@
 - 사진을 클릭하면 큰 화면으로 보여주기 (전체화면기능-그리드 유아이 적용 예정)
 - 로딩된 순서 혹은 순차적으로 애니메이션 적용하기
 
+
+### API 
+- http://54.64.239.231:8080/photoshake/API/ 
+
+![alt tag](https://github.com/dohonext/PhotoShake/blob/master/Screen%20Shot%202015-09-19%20at%2020.34.09.png)
