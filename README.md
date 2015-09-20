@@ -33,4 +33,4 @@
 ### API 
 - http://54.64.239.231:8080/photoshake/API/ 
 
-![alt tag](https://github.com/dohonext/PhotoShake/blob/master/Screen%20Shot%202015-09-19%20at%2020.34.09.png)
+![alt tag](https://github.com/dohonext/PhotoShake/blob/master/Screen%20Shot%202015-09-21%20at%2000.39.14.png)
