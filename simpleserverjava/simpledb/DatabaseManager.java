@@ -11,9 +11,9 @@ import java.util.HashMap;
 import com.google.gson.Gson;
 
 public class DatabaseManager {
-	private static final String address = "jdbc:mysql://127.0.0.1:3306/photoshake";
+	private static final String address = "jdbc:mysql://localhost:3306/photoshake"; 
 	private static final String id = "root";
-	private static final String pw = "";
+	private static final String pw = "";//"ahsem!2";
 	private String query = null;
 	private ArrayList<Object> conditionsList = null;
 	
@@ -73,12 +73,13 @@ public class DatabaseManager {
 			}
 		}
 		if (updatedRows > 0) {
-			message = "{ \"message\":" + "\"" + updatedRows + "data(s) applied\"";    //TODO : 메세지 더 자세하게
+			message = resultMessage(updatedRows + "data(s) applied");    
 		}else {
-			message = "{ \"errorMessag\": \"insert failed\" }";
+			message = errorMessage("Upload failed.");
 		}
 		return message;
 	}
+	
 	public String select(){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -101,7 +102,7 @@ public class DatabaseManager {
 			
 			rs = pstmt.executeQuery();                                     // TODO: 리턴오브젝트 [0]번에 메세지 삽입.
 			if (!rs.isBeforeFirst() ) { 
-				returnObject = "{ \"errorMessage\": \"no data\"}";   
+				returnObject = errorMessage("no data.");   
 			}else {
 				returnObject = convertFromResultSetToJson(rs);
 			}
@@ -126,14 +127,17 @@ public class DatabaseManager {
 		}
 		return returnObject;
 	}
+	
 	public String update(){
 		String message = insert();
 		return message;
 	}
+	
 	public String delete(){
 		String message = insert();
 		return message;
 	}
+	
 	private String convertFromResultSetToJson(ResultSet resultSet)
 	        throws Exception {
 		Gson gson = new Gson();
@@ -149,5 +153,16 @@ public class DatabaseManager {
 	    }
 	    return gson.toJson(resultSetHashMapArrayList);
 	}
+	
+	private String resultMessage(String message) {
+		String errorMessage = "{ \"Result\": \"" + message + "\"}";
+		return errorMessage;
+	}
+	
+	private String errorMessage(String message) {
+		String errorMessage = "{ \"Error\": \"" + message + "\"}";
+		return errorMessage;
+	}
+	
 }
 

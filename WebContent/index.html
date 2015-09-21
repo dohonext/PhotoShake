@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" data-framework="javascript">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>PhotoShake</title>
+		<link rel="stylesheet" href="css/index.css" media="screen" type="text/css"/>	
+	</head>
+	<body>
+		<!-- [[Posting Wideview]] -->
+		<div id="wideview">
+			<button id="closeWideview">X</button>
+			<div id="wideviewPicture">
+			</div>
+			<div id="wideviewDetails"></div>
+		</div>
+		<!-- [[Main Content]] -->
+		<div id="main">
+			<div id="bestBox">
+				<div class="content_subject">
+	    			<div class="content_subject_left" id="best">BEST</div>
+	    			<div class="content_subject_right" id ="bestSeemore">SeeMore</div>
+	  			</div>
+				<ul class="content" id="bestposting">
+				</ul>
+			</div>
+			<div id="newestBox">
+				<div id="blank"></div>
+				<div class="content_subject">
+	    			<div class="content_subject_left" id="newest">NEWEST</div>
+	    			<div class="content_subject_right" id ="newestSeemore">SeeMore</div>
+	    			<div id="new_content_upload">Upload</div>
+	  			</div>
+				<ul class="content" id="newestposting">
+				</ul>
+			</div>
+		</div>
+		<!-- [[Main Menu Bar]] -->
+		<div id="topbar">  
+	  		<div id="topbar_frame"></div>
+	  		<div id="topbar_contain">
+	    		<div id="logo">PhotoShake</div>
+		    	<div id="signin">SignIn</div>
+		    	<div id="signup">SignUp</div>
+		    	<form id="signin_full">
+				    <span>Sign In</span>
+				    <input type="text" name="userId" value placeholder="ID" />
+				    <input type="text" name="userPassword" value placeholder="PASSWORD" />
+				    <div class="signin_buttons" id="cancel1">Cancel</div>
+			      	<div class="signin_buttons" id="submit1">Submit</div>
+			    </form>
+			    <form id="signup_full">
+			      	<span>Sign Up</span>
+			      	<input type="text" name="userId" valueplaceholder="ID" />
+			     	<input type="text" name="userPassword" valueplaceholder="PASSWORD" />
+			      	<input placeholder="PASSWORD(REPEAT)" />
+			      	<div class="signup_buttons" id="cancel2"><span>Cancel</span></div>
+			      	<div class="signup_buttons"><span>Submit</span></div>
+			    </form>
+			</div>
+		</div>
+
+
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/handlebars-v3.0.3.js"></script>
+		<script type="text/javascript" src="js/ImageDisposer.js"></script>
+		<!-- [[Template]]] -->
+		<script id="bestpostingTemplate" type="text/x-handlebars-template">
+			<li data-bestpostingid="{{bestpostingid}}" data-postingid="{{postingid}}" data-postingsubject="{{postingsubject}}" data-postingtext="{{postingtext}}" data-postingpic="{{postingpic}}" data-postingview="{{postingview}}" data-postinglike="{{postinglike}}" data-postinghate="{{postinghate}}" data-bestpostingtime="{{bestpostingtime}}" data-userid="{{userid}}" data-useridname="{{useridname}}" data-usernickname="{{usernickname}}" data-userprofile="{{userprofile}}" data-userprofilepic="{{userprofilepic}}" data-userlevel="{{userlevel}}" data-userexp="{{userexp}}" class="posting">
+				<img src="{{postingpic}}"></img>
+				<div class="posting_subject_filter"></div>
+  				<div class="posting_subject_container">
+   					<span class="posting_subject">{{postingsubject}}</span>
+   					<span class="posting_author">{{usernickname}}</span>
+  				</div>
+			</li>
+		</script>
+		<script id="newestpostingTemplate" type="text/x-handlebars-template">
+			<li data-postingid="{{postingid}}" data-postingsubject="{{postingsubject}}" data-postingtext="{{postingtext}}" data-postingpic="{{postingpic}}" data-postingview="{{postingview}}" data-postinglike="{{postinglike}}" data-postinghate="{{postinghate}}" data-postingtime="{{postingtime}}" data-userid="{{userid}}" data-useridname="{{useridname}}" data-usernickname="{{usernickname}}" data-userprofile="{{userprofile}}" data-userprofilepic="{{userprofilepic}}" data-userlevel="{{userlevel}}" data-userexp="{{userexp}}" class="posting">
+				<img src="{{postingpic}}"></img>
+				<div class="posting_subject_filter"></div>
+  				<div class="posting_subject_container">
+   					<span class="posting_subject">{{postingsubject}}</span>
+   					<span class="posting_author">{{usernickname}}</span>
+  				</div>
+			</li>
+		</script>
+
+	</body>
+</html>
