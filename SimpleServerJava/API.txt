@@ -1,0 +1,38 @@
+[PhotoShake - API]
+
+URL                  METHOD         PARAMETERS                                    FUNCTION                                 ETC 
+----------------------------------------------------------------------------------------------------------------------------------------------------
+/user                GET            -userId(from cookie)                          Get user information
+                                    -(none)                                       Get users ranking (best & grossing)       
+                     POST	    -userIdName, userNickName, userPassword       User sign in	
+                     PUT            -userIdName, userNickname,                    Edit user profile                        Password shouldn’t be passed by PUT method
+                                     userProfile, userProfilePic
+/login               POST           -userIdName, userPassword                     User sign in
+/logout              GET                                                          User sign out
+/bestposting         GET            -bestpostingId                                Get a bestposting by Id                  +1 bestpostingView
+                                    -(none) || page                               Get bestpostings list (by page)
+/posting             GET            -postingId                                    Get a posting by Id                      +1 postingView
+                                    -(none) || page                               Get postings list (by page)
+                     POST           -postingSubject, postingText, postingPic,     Post a posting
+                     				 userId(from cookie)                           
+                     PUT            -postingSubject, postingText, postingPic,     Update the posting
+                     				 userId(from cookie)
+                     DELETE         -postingId, userId(from cookie)               Delete the posting
+/postingLike         PUT            -postingId, userId(from cookie)
+/postingHate         PUT            -postingId, userId(from cookie)
+/comment             GET            -postingId                                    Get comments of the posting
+                     POST           -commentText, postingId, userId(from cookie)  Comment to the posting
+                     PUT            -commentText, commentId, userId(from cookie)  Edit the comment
+                     DELETE         -commentId, userId(from cookie)               Delete the posting
+/userpage            GET            -userId(parameter)                            Get a user page
+                     (POST)                                                       Posting a posting                        @override postingPost()
+
+PUT, DELETE Http Method는 쿼리스트링을 이용해 파라미터를 패스하는것에 유의한다.                     
+
+
+
+[Backlog]
+
+1. Like, hate button handling    +- userExp
+2. User exp, level, type handling
+3. Get (best)postings list when get a (best)posting by Id : to show (best)postings list behind the posting

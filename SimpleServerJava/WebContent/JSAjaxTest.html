@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<button id="b1">Click to show</button>
+	<div id="userInformation"></div>
+	
+	
+	<script>
+		window.addEventListener("load", function() {
+			addEventToClickButton(); 
+			console.log("1");
+		}, false);
+		
+		function addEventToClickButton(){
+			var button1 = document.getElementById("b1");
+			button1.addEventListener("click", getUserInformation, false)  //getUserInformation() 로 쓰면 즉시 실행을 해버린다. 
+			console.log("2");
+			
+			function getUserInformation() {
+				//e.preventDefault();
+				var request = new XMLHttpRequest();
+				var url= "http://localhost:8080/thefamilypractice/AjaxTest"
+					
+				console.log("3");	
+				request.onreadystatechange = function() {
+					if (request.readyState == 4 && request.status == 200) {
+						console.log("4");
+						var aUserInformation = JSON.parse(request.responseText);
+						console.log(aUserInformation);
+				        showUserInformation(aUserInformation); 
+					}
+				}
+				console.log("5");
+				request.open("GET", url, true);
+				request.send();
+				
+				
+				function showUserInformation(arr) {
+					console.log("6");
+					var sOut = ""; 
+					var iLength = arr.length;
+					for (var i = 0; i < iLength; i++) {
+						sOut += "User Id: " + arr[i].a + "<br>" + "User Name: " + arr[i].b + "<br>" + "User Phone: " + arr[i].c + "<br>";
+					}
+					document.getElementById("userInformation").innerHTML = sOut;
+				} 
+			}
+		}
+		
+		
+	</script>
+</body>
+</html>
+
+
